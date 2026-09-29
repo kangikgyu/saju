@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f9f7" />
+    <meta name="description" content="양력·음력 생년월일시로 사주 원국과 오행·십성을 계산합니다. 신년운세, 사주 궁합, 이직운과 재물에 관한 자기성찰 리포트를 확인해 보세요." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:site_name" content="결" />
+    <meta property="og:title" content="무료 사주 만세력 | 나의 사주 원국을 읽다 - 결" />
+    <meta property="og:description" content="무료 사주 만세력에서 신년운세와 사주 궁합, 이직운과 재물의 흐름을 살펴보세요." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="무료 사주 만세력 | 나의 사주 원국을 읽다 - 결" />
+    <meta name="twitter:description" content="사주 원국, 신년운세, 사주 궁합을 살펴보는 무료 만세력." />
+    <title>무료 사주 만세력 | 나의 사주 원국을 읽다 - 결</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="page-shell">
+        <header class="site-header">
+          <div class="brand"><div class="brand-glyph" aria-hidden="true"><span></span><span></span><span></span></div><span class="brand-name">결<span class="brand-dot">.</span></span><span class="brand-divider"></span><span class="brand-descriptor">나를 읽는 만세력</span></div>
+          <a class="method-link" href="#method">계산 기준 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+        </header>
+
+        <main class="main-layout">
+          <section class="input-column" aria-labelledby="form-title">
+            <div class="intro-block">
+              <span class="eyebrow"><span class="eyebrow-line"></span> SAJU READING</span>
+              <h1 id="form-title">무료 사주 만세력<br /><em>나의 결을 읽다</em></h1>
+              <p>양력·음력 생년월일시로 사주 원국과 오행의 흐름을 한눈에 정리해 드립니다.</p>
+            </div>
+
+            <form id="birth-form" class="birth-form" novalidate>
+              <div class="form-topline"><div><span class="form-step">01</span><h2>태어난 날</h2></div><span class="form-caption">모든 정보는 이 기기에서만 계산됩니다</span></div>
+              <fieldset class="calendar-toggle" aria-label="양력 또는 음력">
+                <label><input type="radio" name="calendarType" value="solar" checked /><span>양력</span></label>
+                <label><input type="radio" name="calendarType" value="lunar" /><span>음력</span></label>
+              </fieldset>
+              <div class="field-grid date-grid">
+                <label class="field"><span>태어난 해</span><div class="control"><input id="birth-year" name="year" type="number" min="1900" max="2050" inputmode="numeric" placeholder="1994" required /><small>년</small></div></label>
+                <label class="field"><span>월</span><div class="control"><input id="birth-month" name="month" type="number" min="1" max="12" inputmode="numeric" placeholder="07" required /><small>월</small></div></label>
+                <label class="field"><span>일</span><div class="control"><input id="birth-day" name="day" type="number" min="1" max="31" inputmode="numeric" placeholder="21" required /><small>일</small></div></label>
+              </div>
+              <label id="leap-option" class="check-row" hidden><input id="leap-month" type="checkbox" /><span>윤달에 태어났어요</span><span class="subtle">음력만 해당</span></label>
+              <div class="section-rule"></div>
+              <div class="field-heading"><span class="form-step">02</span><h2>태어난 시간</h2></div>
+              <div class="field-grid time-grid">
+                <label class="field"><span>시</span><div class="control"><input id="birth-hour" name="hour" type="number" min="0" max="23" inputmode="numeric" placeholder="09" /><small>시</small></div></label>
+                <label class="field"><span>분</span><div class="control"><input id="birth-minute" name="minute" type="number" min="0" max="59" inputmode="numeric" placeholder="00" /><small>분</small></div></label>
+              </div>
+              <label class="check-row time-unknown"><input id="unknown-time" type="checkbox" /><span>태어난 시간을 몰라요</span></label>
+              <p class="time-help">한국 표준시 기준 · 23시 이후 일주는 당일로 계산</p>
+              <p id="form-error" class="form-error" role="alert" hidden></p>
+              <button class="submit-button" type="submit"><span><i data-lucide="sparkles" aria-hidden="true"></i> 나의 사주 펼쳐보기</span><i data-lucide="chevron-right" aria-hidden="true"></i></button>
+            </form>
+            <p class="privacy-line"><i data-lucide="shield-check" aria-hidden="true"></i> 입력한 생년월일은 서버에 저장되거나 전송되지 않습니다.</p>
+          </section>
+
+          <section id="result-column" class="result-column" aria-live="polite">
+            <div class="empty-state" id="empty-state">
+              <div class="empty-art" aria-hidden="true"><span class="ring ring-one"></span><span class="ring ring-two"></span><span class="ring ring-three"></span><span class="empty-center">命</span><span class="star star-one">✦</span><span class="star star-two">✳</span></div>
+              <span class="empty-index">YOUR STORY BEGINS HERE</span>
+              <h2>당신의 결을 기다리고 있어요</h2>
+              <p>생년월일시를 입력하면 네 기둥과 오행의 분포가 여기에 펼쳐집니다.</p>
+              <div class="empty-meta"><span>四柱八字</span><span class="meta-dot"></span><span>五行</span><span class="meta-dot"></span><span>十星</span></div>
+            </div>
+            <div id="result-content" hidden></div>
+          </section>
+        </main>
+
+        <section class="scope-section" aria-labelledby="scope-title">
+          <h2 id="scope-title">사주 풀이의 범위</h2>
+          <p>이 만세력은 개인의 사주 원국, 오행, 십성, 신살을 계산하고 신년운세와 두 사람의 사주 궁합을 살펴봅니다. 이직운과 재물에 관한 내용도 미래를 단정하는 예언이 아니라 자신의 선택을 돌아보기 위한 참고 자료입니다.</p>
+        </section>
+        <footer class="footer" id="method"><div class="footer-brand">결<span>.</span></div><p>절기 기준 년·월주 · 한국 음력 변환 · 한국 표준시</p><p>사주 해석은 전통적 상징에 기반한 자기성찰 자료입니다. 중요한 결정은 실제 정보와 함께 판단하세요.</p></footer>
+      </div>
+    </div>
+    <noscript>사주 계산 기능을 사용하려면 자바스크립트를 켜 주세요.</noscript>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
